@@ -18,7 +18,7 @@ function Sidebar() {
         />
         <div
         className={` ${
-          open ? "w-72 p-5" : "opacity-0 invisible absolute w-0 p-0"
+          open ? "w-72 p-5" : "translate-x-0 w-0 p-0"
         } bg-gray-900 h-screen pt-8 relative duration-300`}
       >
         
