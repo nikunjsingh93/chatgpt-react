@@ -12,14 +12,17 @@ function Sidebar() {
         <>
         <img
           src="./src/assets/control.png"
-          className={`absolute z-40 cursor-pointer  w-7 border-dark-purple
+          className={`absolute z-50 cursor-pointer  w-7 border-dark-purple
            border-2 rounded-full  ${!open}`}
           onClick={() => setOpen(!open)}
         />
+        <div className="relative">
+
+        
         <div
         className={` ${
           open ? "w-72 p-5" : "translate-x-0 w-0 p-0"
-        } bg-gray-900 h-screen pt-8 relative duration-300`}
+        } bg-gray-900 h-screen pt-8 duration-300 absolute sm:relative z-40`}
       >
         
         <div className="flex gap-x-4 items-center">
@@ -46,6 +49,7 @@ function Sidebar() {
             </li>
           ))}
         </ul>
+      </div>
       </div>
       </>
     )
