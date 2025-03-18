@@ -10,7 +10,7 @@ export const fetchChatCompletion = async (message) => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        model: 'deepseek/deepseek-r1-zero:free',
+        model: 'google/gemma-3-1b-it:free',
         messages: [{ role: 'user', content: message }],
       }),
     });
