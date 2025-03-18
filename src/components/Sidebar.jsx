@@ -22,7 +22,7 @@ function Sidebar() {
         <div
         className={` ${
           open ? "w-72 p-5" : "translate-x-0 w-0 p-0"
-        } bg-gray-900 h-screen pt-8 duration-300 absolute sm:relative z-40`}
+        } bg-gray-900 h-full pt-8 duration-300 absolute sm:relative z-40`}
       >
         
         <div className="flex gap-x-4 items-center">

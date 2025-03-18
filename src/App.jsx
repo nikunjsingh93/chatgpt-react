@@ -8,7 +8,7 @@ function App() {
 
   return (
    
-    <div className="flex">
+    <div className="flex h-screen">
       <Sidebar />
       <MainContent />
     </div>
