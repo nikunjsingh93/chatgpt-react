@@ -3,9 +3,7 @@ import { useState } from 'react'
 function Sidebar() {
       const [open, setOpen] = useState(true);
       const Menus = [
-        { title: "Dashboard" },
-        { title: "Inbox"},
-        { title: "Files ", gap: true },
+        { title: "New Chat" , gap: true},
         { title: "Setting" },
       ];
     return(
@@ -31,7 +29,7 @@ function Sidebar() {
               !open && "scale-0"
             }`}
           >
-            Designer
+            Nik GPT
           </h1>
         </div>
         <ul className="pt-6">

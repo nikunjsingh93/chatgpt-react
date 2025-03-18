@@ -1,10 +1,10 @@
 import Chat from "./Chat";
+import Navbar from "./Navbar";
 
 function MainContent() {
   return (
-    <div className="mx-auto flex flex-col">
-      <h1 className="text-xl ">Main Content</h1>
-      <p>Here is the main content area that adjusts based on sidebar width.</p>
+    <div className="flex flex-col w-full">
+      <Navbar />
       <Chat />
     </div>
   );
