@@ -1,18 +1,27 @@
 import React, { useState } from 'react';
 import { Send } from 'lucide-react';
+import { fetchChatCompletion } from '../services/api.js'
 
 const Chat = () => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
 
-  const handleSend = () => {
+  const handleSend = async () => {
+    
+
     if (input.trim()) {
       setMessages([...messages, { text: input, sender: 'user' }]);
       setInput('');
 
+      const result = await fetchChatCompletion(input);
+      console.log("response", result)
+
+      const chatResponse = result?.choices?.[0]?.message?.content || 'No response';
+      
+
       // Simulating AI response
       setTimeout(() => {
-        setMessages((prev) => [...prev, { text: 'This is a simulated AI response.', sender: 'ai' }]);
+        setMessages((prev) => [...prev, { text: chatResponse , sender: 'ai' }]);
       }, 500);
     }
   };
