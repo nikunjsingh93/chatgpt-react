@@ -27,8 +27,8 @@ const Chat = () => {
   };
 
   return (
-    <div className="flex flex-col h-full p-4 bg-gray-100 w-95 sm:w-100 md:w-120 lg:w-180 xl:w-200 mx-auto">
-      <div className="flex-1 overflow-y-auto mb-4 p-4 bg-white rounded-xl shadow-md">
+    <div className="flex flex-col h-[calc(100%-4rem)] p-4 bg-gray-100 w-95 sm:w-100 md:w-120 lg:w-180 xl:w-200 mx-auto">
+      <div className="h-[calc(100%-4rem)] overflow-y-auto mb-4 p-4 bg-white rounded-xl shadow-md">
         {messages.map((msg, index) => (
           <div key={index} className={`my-2 p-3 rounded-xl max-w-xs ${msg.sender === 'user' ? 'bg-blue-500 text-white self-end' : 'bg-gray-300 text-black self-start'}`}>
             {msg.text}
