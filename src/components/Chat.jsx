@@ -6,23 +6,40 @@ import MarkdownReader from './MarkdownReader';
 const Chat = () => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
+  const [loading, setLoading] = useState(false); // Track loading state
 
   const handleSend = async () => {
     if (input.trim()) {
+      // Add user's message
       setMessages([...messages, { text: input, sender: "user" }]);
-      setInput("");
+      setInput(""); // Clear the input field
 
-      const result = await fetchChatCompletion(input);
-      console.log("response", result);
+      // Set loading to true to show the loading message
+      setLoading(true);
 
-      const chatResponse =
-        result?.choices?.[0]?.message?.content ||
-        "Looks like I cant think right now...";
+      try {
+        const result = await fetchChatCompletion(input);
+        console.log("response", result);
 
-      // Simulating AI response
-      setTimeout(() => {
-        setMessages((prev) => [...prev, { text: chatResponse, sender: "ai" }]);
-      }, 500);
+        const chatResponse =
+          result?.choices?.[0]?.message?.content ||
+          "Looks like I can't think right now...";
+
+        // Add the AI's response to the messages array
+        setMessages((prevMessages) => [
+          ...prevMessages,
+          { text: chatResponse, sender: "ai" },
+        ]);
+      } catch (error) {
+        console.error("Error fetching AI response:", error);
+        setMessages((prevMessages) => [
+          ...prevMessages,
+          { text: "Error fetching response. Please try again.", sender: "ai" },
+        ]);
+      } finally {
+        // Set loading to false once the API call is complete
+        setLoading(false);
+      }
     }
   };
 
@@ -38,9 +55,15 @@ const Chat = () => {
                 : "bg-gray-300 text-black self-start max-w-3xl"
             }`}
           >
-            {<MarkdownReader markdownContent={msg.text} />}
+            <MarkdownReader markdownContent={msg.text} />
           </div>
         ))}
+        
+        {loading && (
+          <div className="my-2 p-3 rounded-xl bg-gray-200 text-black self-start max-w-3xl">
+            <p>Thinking...</p>
+          </div>
+        )}
       </div>
 
       <div className="flex items-center gap-2">
