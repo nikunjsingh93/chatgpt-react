@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Send } from "lucide-react";
 import { fetchChatCompletion } from "../services/api.js";
+import MarkdownReader from './MarkdownReader';
 
 const Chat = () => {
   const [messages, setMessages] = useState([]);
@@ -34,10 +35,10 @@ const Chat = () => {
             className={`my-2 p-3 rounded-xl  ${
               msg.sender === "user"
                 ? "bg-blue-500 text-white self-end ml-auto max-w-xs"
-                : "bg-gray-300 text-black self-start max-w-lg"
+                : "bg-gray-300 text-black self-start max-w-3xl"
             }`}
           >
-            {msg.text}
+            {<MarkdownReader markdownContent={msg.text} />}
           </div>
         ))}
       </div>
