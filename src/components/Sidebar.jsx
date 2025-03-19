@@ -46,9 +46,9 @@ function Sidebar() {
           </div>
           <ul className="pt-6">
           {console.log("chat list", chatList)}
-            {chatList.map((chat) => (
+            {chatList.map((chat, index) => (
               <li
-                key={chat[0].text}
+                key={index}
                 className="flex  rounded-md p-2 cursor-pointer hover:bg-light-white text-gray-300 text-sm items-center gap-x-4"
               >
                 <span
