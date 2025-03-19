@@ -8,7 +8,9 @@ export const ChatProvider = ({ children }) => {
   const [messages, setMessages] = useState(
     JSON.parse(localStorage.getItem("messages"))
   );
-  const [chatList, setChatList] = useState(JSON.parse(localStorage.getItem("chatList")));
+  const [chatList, setChatList] = useState(
+    JSON.parse(localStorage.getItem("chatList"))
+  );
 
   useEffect(() => {
     const storedMessages = localStorage.getItem("messages");
@@ -31,7 +33,7 @@ export const ChatProvider = ({ children }) => {
   };
 
   const removeFromMessages = (index) => {
-   // setMessages((prev) => prev.filter((message) => message.id !== index));
+    // setMessages((prev) => prev.filter((message) => message.id !== index));
 
     setMessages((prev) => prev.filter((_, index) => index !== indexToRemove));
   };
@@ -48,12 +50,28 @@ export const ChatProvider = ({ children }) => {
     setMessages([]);
   };
 
+  const areArraysEqual = (arr1, arr2) => {
+    if (arr1.length !== arr2.length) return false;
+
+    return arr1.every((value, index) => {
+      if (Array.isArray(value) && Array.isArray(arr2[index])) {
+        return areArraysEqual(value, arr2[index]); // Recursively compare
+      }
+      return value === arr2[index];
+    });
+  };
+
   const removeFromChatList = (indexToRemove) => {
     chatList.forEach((message, index) => {
-        if (indexToRemove === index) {
-            setChatList((prev) => prev.filter((_, index) => index !== indexToRemove));
+      if (indexToRemove === index) {
+        setChatList((prev) =>
+          prev.filter((_, index) => index !== indexToRemove)
+        );
+        if (areArraysEqual(message, messages)) {
+          setMessages([]);
         }
-      });
+      }
+    });
   };
 
   const addToChatList = (item) => {
