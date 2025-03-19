@@ -6,6 +6,7 @@ export const useChatContext = () => useContext(ChatContext);
 
 export const ChatProvider = ({ children }) => {
   const [messages, setMessages] = useState(JSON.parse(localStorage.getItem("messages")));
+  const [chatList, setChatList] = useState([]);
 
   useEffect(() => {
     const storedMessages = localStorage.getItem("messages");
@@ -25,6 +26,10 @@ export const ChatProvider = ({ children }) => {
     setMessages((prev) => prev.filter((message) => message.id !== messageId));
   };
 
+  const addToChatList = (item) => {
+    setChatList((prev) => [...prev, item]);
+  };
+
 //   const isFavorite = (movieId) => {
 //     return favorites.some((movie) => movie.id === movieId);
 //   };
@@ -33,6 +38,8 @@ export const ChatProvider = ({ children }) => {
     messages,
     addToMessages,
     removeFromMessages,
+    chatList,
+    addToChatList,
   };
 
   return (
