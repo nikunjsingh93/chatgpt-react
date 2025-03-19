@@ -54,12 +54,15 @@ function Sidebar() {
             {chatList.map((chat, index) => (
               <li
                 key={index}
-                className="flex  rounded-md p-2 cursor-pointer hover:bg-light-white text-gray-300 text-sm items-center gap-x-4"
+                className="flex  rounded-md p-2 hover:bg-light-white text-gray-300 text-sm items-center gap-x-4"
               >
                 <span
-                  className={`${!open && "hidden"} origin-left duration-200`} onClick={() => onChatListClick(index)}
+                  className={`${!open && "hidden"} origin-left duration-200 cursor-pointer`} onClick={() => onChatListClick(index)}
                 >
                   {chat[0].text} 
+                </span>
+                <span className={`${!open && "hidden"} ml-auto cursor-pointer`}>
+                  Delete
                 </span>
               </li>
             ))}
