@@ -3,9 +3,9 @@ import { useChatContext } from "../contexts/ChatContext.jsx";
 
 function Sidebar() {
   const [open, setOpen] = useState(true);
-  const { chatList, addToChatList, messages, addToMessages, clearMessages, getMessages } = useChatContext();
+  const { chatList, addToChatList, messages, addToMessages, clearMessages, getMessages, removeFromChatList } = useChatContext();
 
-  function onNewChatClick(e) {
+  function onNewChatClick() {
     //e.preventDefault();
     addToChatList(messages);
     clearMessages();
@@ -14,6 +14,10 @@ function Sidebar() {
   function onChatListClick(index) {
     //e.preventDefault();
     getMessages(index);
+  }
+
+  function onDeleteClick(index) {
+    removeFromChatList(index);
   }
 
   return (
@@ -61,7 +65,7 @@ function Sidebar() {
                 >
                   {chat[0].text} 
                 </span>
-                <span className={`${!open && "hidden"} ml-auto cursor-pointer`}>
+                <span className={`${!open && "hidden"} ml-auto cursor-pointer`}   onClick={() => onDeleteClick(index)} >
                   Delete
                 </span>
               </li>

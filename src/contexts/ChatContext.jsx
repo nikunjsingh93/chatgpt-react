@@ -30,8 +30,10 @@ export const ChatProvider = ({ children }) => {
     setMessages((prev) => [...prev, message]);
   };
 
-  const removeFromMessages = (messageId) => {
-    setMessages((prev) => prev.filter((message) => message.id !== messageId));
+  const removeFromMessages = (index) => {
+   // setMessages((prev) => prev.filter((message) => message.id !== index));
+
+    setMessages((prev) => prev.filter((_, index) => index !== indexToRemove));
   };
 
   const getMessages = (indexToGet) => {
@@ -47,7 +49,11 @@ export const ChatProvider = ({ children }) => {
   };
 
   const removeFromChatList = (indexToRemove) => {
-    setMessages((prev) => prev.filter((_, index) => index !== indexToRemove));
+    chatList.forEach((message, index) => {
+        if (indexToRemove === index) {
+            setChatList((prev) => prev.filter((_, index) => index !== indexToRemove));
+        }
+      });
   };
 
   const addToChatList = (item) => {
