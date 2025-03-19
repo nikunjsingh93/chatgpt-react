@@ -1,18 +1,28 @@
 // Navbar.jsx
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
     <nav className="bg-blue-500 p-4 w-full">
       <div className="container mx-auto flex items-center justify-between">
         {/* Heading */}
-        <h1 className="text-white text-2xl font-semibold">Nik GPT</h1>
+        <h1 className="text-white text-2xl font-semibold">
+          <Link to="/">Nik GPT</Link>
+        </h1>
 
         {/* Navigation Links */}
         <div className="space-x-6">
-          <a href="#about" className="text-white hover:text-gray-300">
-            About
-          </a>
+          <span className="text-white hover:text-gray-300">
+            <Link to="/" className="nav-link">
+              Chat
+            </Link>
+          </span>
+          <span className="text-white hover:text-gray-300">
+            <Link to="/about" className="nav-link">
+              About
+            </Link>
+          </span>
         </div>
       </div>
     </nav>
