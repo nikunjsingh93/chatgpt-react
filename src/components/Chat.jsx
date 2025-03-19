@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Send } from "lucide-react";
 import { fetchChatCompletion } from "../services/api.js";
-import MarkdownReader from './MarkdownReader';
+import MarkdownReader from "./MarkdownReader";
 import { useChatContext } from "../contexts/ChatContext.jsx";
 
 const Chat = () => {
@@ -13,7 +13,6 @@ const Chat = () => {
     if (input.trim()) {
       // Add user's message
       addToMessages({ text: input, sender: "user" });
-     // setMessages([...messages, { text: input, sender: "user" }]);
       setInput(""); // Clear the input field
 
       // Set loading to true to show the loading message
@@ -30,22 +29,13 @@ const Chat = () => {
         // Add the AI's response to the messages array
 
         addToMessages({ text: chatResponse, sender: "ai" });
-
-
-
-        // setMessages((prevMessages) => [
-        //   ...prevMessages,
-        //   { text: chatResponse, sender: "ai" },
-        // ]);
       } catch (error) {
         console.error("Error fetching AI response:", error);
 
-        addToMessages({ text: "Error fetching response. Please try again.", sender: "ai" });
-
-        // setMessages((prevMessages) => [
-        //   ...prevMessages,
-        //   { text: "Error fetching response. Please try again.", sender: "ai" },
-        // ]);
+        addToMessages({
+          text: "Error fetching response. Please try again.",
+          sender: "ai",
+        });
       } finally {
         // Set loading to false once the API call is complete
         setLoading(false);
@@ -68,7 +58,7 @@ const Chat = () => {
             <MarkdownReader markdownContent={msg.text} />
           </div>
         ))}
-        
+
         {loading && (
           <div className="my-2 p-3 rounded-xl bg-gray-200 text-black self-start max-w-3xl">
             <p>Thinking...</p>

@@ -9,7 +9,6 @@ export const ChatProvider = ({ children }) => {
     JSON.parse(localStorage.getItem("messages"))
   );
   const [chatList, setChatList] = useState([]);
-  const [selectedIndex, setSelectedIndex] = useState(null);
 
   useEffect(() => {
     const storedMessages = localStorage.getItem("messages");
@@ -44,7 +43,7 @@ export const ChatProvider = ({ children }) => {
   };
 
   const clearMessages = () => {
-    setMessages([]); // Set to an empty array
+    setMessages([]);
   };
 
   const removeFromChatList = (indexToRemove) => {
@@ -54,10 +53,6 @@ export const ChatProvider = ({ children }) => {
   const addToChatList = (item) => {
     setChatList((prev) => [...prev, item]);
   };
-
-  //   const isFavorite = (movieId) => {
-  //     return favorites.some((movie) => movie.id === movieId);
-  //   };
 
   const value = {
     messages,
