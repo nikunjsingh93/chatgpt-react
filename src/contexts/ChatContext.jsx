@@ -5,7 +5,7 @@ const ChatContext = createContext();
 export const useChatContext = () => useContext(ChatContext);
 
 export const ChatProvider = ({ children }) => {
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = useState(JSON.parse(localStorage.getItem("messages")));
 
   useEffect(() => {
     const storedMessages = localStorage.getItem("messages");
@@ -22,7 +22,7 @@ export const ChatProvider = ({ children }) => {
   };
 
   const removeFromMessages = (messageId) => {
-    setMessages((prev) => prev.filter((movie) => movie.id !== messageId));
+    setMessages((prev) => prev.filter((message) => message.id !== messageId));
   };
 
 //   const isFavorite = (movieId) => {
