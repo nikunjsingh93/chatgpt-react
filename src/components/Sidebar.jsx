@@ -3,7 +3,7 @@ import { useChatContext } from "../contexts/ChatContext.jsx";
 
 function Sidebar() {
   const [open, setOpen] = useState(true);
-  const { chatList, addToChatList, messages, addToMessages, clearMessages, getMessages, removeFromChatList } = useChatContext();
+  const { chatList, addToChatList, messages, clearMessages, getMessages, removeFromChatList } = useChatContext();
 
   function onNewChatClick() {
     //e.preventDefault();
@@ -62,7 +62,7 @@ function Sidebar() {
                 <span
                   className={`${!open && "hidden"} origin-left duration-200 cursor-pointer`} onClick={() => onChatListClick(index)}
                 >
-                  {chat[0].text} 
+                  {chat[0]?.text} 
                 </span>
                 <span className={`${!open && "hidden"} ml-auto cursor-pointer`}   onClick={() => onDeleteClick(index)} >
                   Delete
