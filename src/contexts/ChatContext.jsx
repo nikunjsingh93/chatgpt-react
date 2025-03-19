@@ -8,7 +8,7 @@ export const ChatProvider = ({ children }) => {
   const [messages, setMessages] = useState(
     JSON.parse(localStorage.getItem("messages"))
   );
-  const [chatList, setChatList] = useState([]);
+  const [chatList, setChatList] = useState(JSON.parse(localStorage.getItem("chatList")));
 
   useEffect(() => {
     const storedMessages = localStorage.getItem("messages");
