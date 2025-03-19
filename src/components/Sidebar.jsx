@@ -3,12 +3,17 @@ import { useChatContext } from "../contexts/ChatContext.jsx";
 
 function Sidebar() {
   const [open, setOpen] = useState(true);
-  const { chatList, addToChatList, messages } = useChatContext();
+  const { chatList, addToChatList, messages, addToMessages, clearMessages, getMessages } = useChatContext();
 
   function onNewChatClick(e) {
     //e.preventDefault();
-    addToChatList(messages)
-    
+    addToChatList(messages);
+    clearMessages();
+  }
+
+  function onChatListClick(index) {
+    //e.preventDefault();
+    getMessages(index);
   }
 
   return (
@@ -52,9 +57,9 @@ function Sidebar() {
                 className="flex  rounded-md p-2 cursor-pointer hover:bg-light-white text-gray-300 text-sm items-center gap-x-4"
               >
                 <span
-                  className={`${!open && "hidden"} origin-left duration-200`}
+                  className={`${!open && "hidden"} origin-left duration-200`} onClick={() => onChatListClick(index)}
                 >
-                  {chat[0].text}
+                  {chat[0].text} 
                 </span>
               </li>
             ))}
