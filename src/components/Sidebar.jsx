@@ -54,7 +54,6 @@ function Sidebar() {
             </h4>
           </div>
           <ul className="pt-6">
-          {console.log("chat list", chatList)}
             {chatList.map((chat, index) => (
               <li
                 key={index}

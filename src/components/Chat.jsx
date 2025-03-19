@@ -20,7 +20,7 @@ const Chat = () => {
 
       try {
         const result = await fetchChatCompletion(input);
-        console.log("response", result);
+        //console.log("response", result);
 
         const chatResponse =
           result?.choices?.[0]?.message?.content ||
@@ -30,7 +30,7 @@ const Chat = () => {
 
         addToMessages({ text: chatResponse, sender: "ai" });
       } catch (error) {
-        console.error("Error fetching AI response:", error);
+        // console.error("Error fetching AI response:", error);
 
         addToMessages({
           text: "Error fetching response. Please try again.",
