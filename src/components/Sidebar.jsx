@@ -3,9 +3,14 @@ import { useChatContext } from "../contexts/ChatContext.jsx";
 
 function Sidebar() {
   const [open, setOpen] = useState(true);
-  const { chatList, setChatList } = useChatContext();
+  const { chatList, addToChatList, messages } = useChatContext();
 
-  const Menus = [{ title: "List 1" }, { title: "List 2" }];
+  function onNewChatClick(e) {
+    //e.preventDefault();
+    addToChatList(messages)
+    
+  }
+
   return (
     <>
       <img
@@ -34,21 +39,22 @@ function Sidebar() {
             <h4
               className={`text-white origin-left font-small text-lg duration-200 ${
                 !open && "scale-0"
-              }`}
+              }`}  onClick={onNewChatClick}
             >
              New Chat
             </h4>
           </div>
           <ul className="pt-6">
-            {Menus.map((Menu) => (
+          {console.log("chat list", chatList)}
+            {chatList.map((chat) => (
               <li
-                key={Menu.title}
+                key={chat[0].text}
                 className="flex  rounded-md p-2 cursor-pointer hover:bg-light-white text-gray-300 text-sm items-center gap-x-4"
               >
                 <span
                   className={`${!open && "hidden"} origin-left duration-200`}
                 >
-                  {Menu.title}
+                  {chat[0].text}
                 </span>
               </li>
             ))}

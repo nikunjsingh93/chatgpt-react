@@ -10,13 +10,19 @@ export const ChatProvider = ({ children }) => {
 
   useEffect(() => {
     const storedMessages = localStorage.getItem("messages");
-
     if (storedMessages) setMessages(JSON.parse(storedMessages));
+
+    const storedChatList = localStorage.getItem("chatList");
+    if (storedChatList) setChatList(JSON.parse(storedChatList));
   }, []);
 
   useEffect(() => {
     localStorage.setItem("messages", JSON.stringify(messages));
   }, [messages]);
+
+  useEffect(() => {
+    localStorage.setItem("chatList", JSON.stringify(chatList));
+  }, [chatList]);
 
   const addToMessages = (message) => {
     setMessages((prev) => [...prev, message]);
