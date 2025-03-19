@@ -2,16 +2,18 @@ import React, { useState } from "react";
 import { Send } from "lucide-react";
 import { fetchChatCompletion } from "../services/api.js";
 import MarkdownReader from './MarkdownReader';
+import { useChatContext } from "../contexts/ChatContext.jsx";
 
 const Chat = () => {
-  const [messages, setMessages] = useState([]);
+  const { messages, addToMessages } = useChatContext();
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false); // Track loading state
 
   const handleSend = async () => {
     if (input.trim()) {
       // Add user's message
-      setMessages([...messages, { text: input, sender: "user" }]);
+      addToMessages({ text: input, sender: "user" });
+     // setMessages([...messages, { text: input, sender: "user" }]);
       setInput(""); // Clear the input field
 
       // Set loading to true to show the loading message
@@ -26,16 +28,24 @@ const Chat = () => {
           "Looks like I can't think right now...";
 
         // Add the AI's response to the messages array
-        setMessages((prevMessages) => [
-          ...prevMessages,
-          { text: chatResponse, sender: "ai" },
-        ]);
+
+        addToMessages({ text: chatResponse, sender: "ai" });
+
+
+
+        // setMessages((prevMessages) => [
+        //   ...prevMessages,
+        //   { text: chatResponse, sender: "ai" },
+        // ]);
       } catch (error) {
         console.error("Error fetching AI response:", error);
-        setMessages((prevMessages) => [
-          ...prevMessages,
-          { text: "Error fetching response. Please try again.", sender: "ai" },
-        ]);
+
+        addToMessages({ text: "Error fetching response. Please try again.", sender: "ai" });
+
+        // setMessages((prevMessages) => [
+        //   ...prevMessages,
+        //   { text: "Error fetching response. Please try again.", sender: "ai" },
+        // ]);
       } finally {
         // Set loading to false once the API call is complete
         setLoading(false);
