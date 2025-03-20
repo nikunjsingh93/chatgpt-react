@@ -59,7 +59,7 @@ function Sidebar() {
           </div>
           <div className="pt-6 flex gap-x-4 items-center">
             <h4
-              className={`text-white origin-left font-small text-lg duration-200 cursor-pointer ${
+              className={`text-white origin-left font-small text-lg duration-200 cursor-pointer pt-5 ${
                 !open && "scale-0"
               }`}  onClick={onNewChatClick}
             >
