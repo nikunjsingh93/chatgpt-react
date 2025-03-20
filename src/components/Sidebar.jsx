@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useChatContext } from "../contexts/ChatContext.jsx";
+import { MessageSquareText, Trash } from "lucide-react";
 
 function Sidebar() {
    // Function to determine if the window width is at least the 'md' breakpoint (768px)
@@ -58,13 +59,13 @@ function Sidebar() {
             
           </div>
           <div className="pt-6 flex gap-x-4 items-center">
-            <h4
-              className={`text-white origin-left font-small text-lg duration-200 cursor-pointer pt-5 ${
+            <div
+              className={`flex text-white origin-left font-small text-lg duration-200 cursor-pointer pt-5 ${
                 !open && "scale-0"
               }`}  onClick={onNewChatClick}
             >
-             New Chat
-            </h4>
+            <div className="pr-3 pt-1"><MessageSquareText /></div> New Chat 
+            </div>
           </div>
           <ul className="pt-6">
             {chatList.map((chat, index) => (
@@ -78,7 +79,7 @@ function Sidebar() {
                   {chat[0]?.text} 
                 </span>
                 <span className={`${!open && "hidden"} ml-auto cursor-pointer`}   onClick={() => onDeleteClick(index)} >
-                  Delete
+                <Trash size={17} />
                 </span>
               </li>
             ))}

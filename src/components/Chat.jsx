@@ -78,7 +78,7 @@ const Chat = () => {
           type="text"
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          placeholder="Type your message..."
+          placeholder="Ask anything..."
           onKeyDown={(e) => e.key === "Enter" && handleSend()}
         />
         <button
