@@ -50,7 +50,6 @@ export const ChatProvider = ({ children }) => {
     setMessages([]);
   };
 
-
   const removeFromChatList = (indexToRemove) => {
     chatList.forEach((message, index) => {
       if (indexToRemove === index) {
@@ -59,7 +58,6 @@ export const ChatProvider = ({ children }) => {
         );
 
         if (JSON.stringify(message) === JSON.stringify(messages)) {
-            console.log("inn")
           setMessages([]);
         }
       }
