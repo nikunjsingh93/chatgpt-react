@@ -1,4 +1,4 @@
 function About () {
-    return <div>Nik GPT made by Nikunj Singh</div>
+    return <div className="p-10 text-white">Nik GPT made by Nikunj Singh</div>
 }
 export default About;
