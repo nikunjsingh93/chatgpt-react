@@ -60,7 +60,7 @@ const Chat = () => {
         ))}
 
         {loading && (
-          <div className="my-2 p-3 rounded-xl bg-gray-200 text-black self-start max-w-3xl">
+          <div className="my-2 p-3 rounded-xl bg-[#212121] text-[#ECECEC] self-start max-w-3xl">
             <p>Thinking...</p>
           </div>
         )}
