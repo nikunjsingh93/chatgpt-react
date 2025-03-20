@@ -44,15 +44,15 @@ const Chat = () => {
   };
 
   return (
-    <div className="flex flex-col h-[calc(100%-4rem)] p-4 bg-gray-100 w-95 sm:w-100 md:w-120 lg:w-180 xl:w-200 mx-auto">
-      <div className="h-[calc(100%-4rem)] overflow-y-auto mb-4 p-4 bg-white rounded-xl shadow-md">
+    <div style={{backgroundColor: "#212121"}} className="flex flex-col h-[calc(100%-4rem)] p-4 w-95 sm:w-100 md:w-120 lg:w-180 xl:w-200 mx-auto">
+      <div style={{backgroundColor: "#212121"}} className="h-[calc(100%-4rem)] overflow-y-auto mb-4 p-4 rounded-xl shadow-md">
         {messages.map((msg, index) => (
           <div
             key={index}
             className={`my-2 p-3 rounded-xl  ${
               msg.sender === "user"
-                ? "bg-blue-500 text-white self-end ml-auto max-w-xs"
-                : "bg-gray-300 text-black self-start max-w-3xl"
+                ? "bg-[#2F2F2F]  text-[#ECECEC] self-end ml-auto max-w-xs"
+                : "bg-[#212121] text-[#ECECEC] self-start max-w-3xl"
             }`}
           >
             <MarkdownReader markdownContent={msg.text} />

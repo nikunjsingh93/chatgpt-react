@@ -12,7 +12,7 @@ function App() {
 
   return (
     <ChatProvider>
-      <div className="flex h-screen">
+      <div style={{backgroundColor: "#212121"}} className="flex h-screen">
         <Sidebar />
         <div className="flex flex-col w-full">
           <Navbar />
