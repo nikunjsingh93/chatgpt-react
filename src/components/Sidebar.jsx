@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useChatContext } from "../contexts/ChatContext.jsx";
-import { MessageSquareText, Trash, Menu } from "lucide-react";
+import { MessageSquareText, Trash, PanelsTopLeft } from "lucide-react";
 
 function Sidebar() {
    // Function to determine if the window width is at least the 'md' breakpoint (768px)
@@ -43,10 +43,10 @@ function Sidebar() {
   return (
     <>
       <button
-        className={`absolute z-50 cursor-pointer m-4
+        className={`absolute z-50 cursor-pointer m-5
            ${!open}`}
         onClick={() => setOpen(!open)}
-      ><Menu size={33} color="#ffffff" /></button>
+      ><PanelsTopLeft size={25} color="#ffffff" /></button>
 
       <div className="relative">
         <div style={{backgroundColor: "#171717"}}
