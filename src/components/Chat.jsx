@@ -77,7 +77,7 @@ const Chat = () => {
         />
         <button
           onClick={handleSend}
-          className="bg-white text-black p-3 rounded-xl hover:bg-blue-600"
+          className="bg-white text-black p-3 rounded-xl hover:bg-gray-300"
         >
           <Send size={20} />
         </button>

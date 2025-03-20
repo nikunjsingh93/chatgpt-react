@@ -28,16 +28,13 @@ export const ChatProvider = ({ children }) => {
     localStorage.setItem("chatList", JSON.stringify(chatList));
   }, [chatList]);
 
+  //add message to message thread
   const addToMessages = (message) => {
     setMessages((prev) => [...prev, message]);
   };
 
-  const removeFromMessages = (index) => {
-    // setMessages((prev) => prev.filter((message) => message.id !== index));
 
-    setMessages((prev) => prev.filter((_, index) => index !== indexToRemove));
-  };
-
+  //get message thread
   const getMessages = (indexToGet) => {
     chatList.forEach((message, index) => {
       if (indexToGet === index) {
@@ -46,10 +43,12 @@ export const ChatProvider = ({ children }) => {
     });
   };
 
+  //clear all messages in messages array
   const clearMessages = () => {
     setMessages([]);
   };
 
+  //remove a message thread from chat list
   const removeFromChatList = (indexToRemove) => {
     chatList.forEach((message, index) => {
       if (indexToRemove === index) {
@@ -64,18 +63,18 @@ export const ChatProvider = ({ children }) => {
     });
   };
 
+  //add messages thread to chat list
   const addToChatList = (item) => {
     const messageExists = chatList.includes(item);
 
     if (!messageExists && item.length > 0) {
-      setChatList((prev) => [...prev, item]);
+      setChatList((prev) => [item,...prev]);
     }
   };
 
   const value = {
     messages,
     addToMessages,
-    removeFromMessages,
     chatList,
     addToChatList,
     removeFromChatList,
