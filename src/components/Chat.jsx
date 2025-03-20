@@ -47,8 +47,8 @@ const Chat = () => {
     <div style={{backgroundColor: "#212121"}} className="flex flex-col h-[calc(100%-4rem)] p-4 w-95 sm:w-100 md:w-120 lg:w-180 xl:w-200 mx-auto">
       <div style={{backgroundColor: "#212121"}} className="h-[calc(100%-4rem)] overflow-y-auto mb-4 p-2 rounded-xl shadow-md">
       {messages.length === 0 ? (
-    <div className="text-center text-gray-500">
-      <p>Whats on your mind? Type your question.</p>
+    <div className="text-center text-gray-500 text-xl">
+      Whats on your mind? Type your question
     </div>
   ) : (
     messages.map((msg, index) => (
