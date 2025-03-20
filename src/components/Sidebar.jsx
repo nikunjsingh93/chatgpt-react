@@ -1,9 +1,28 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useChatContext } from "../contexts/ChatContext.jsx";
 
 function Sidebar() {
-  const [open, setOpen] = useState(true);
+   // Function to determine if the window width is at least the 'md' breakpoint (768px)
+   const isMediumScreen = () => window.innerWidth >= 768;
+
+   // Initialize 'open' state based on the current window width
+   const [open, setOpen] = useState(isMediumScreen());
+   
   const { chatList, addToChatList, messages, clearMessages, getMessages, removeFromChatList } = useChatContext();
+
+    // Effect to handle window resize events
+  useEffect(() => {
+    const handleResize = () => {
+      if (!isMediumScreen()) {
+        setOpen(false); // Close the drawer on small screens
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup the event listener on component unmount
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   function onNewChatClick() {
     //e.preventDefault();
