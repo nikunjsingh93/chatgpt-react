@@ -49,7 +49,7 @@ function Sidebar() {
       ><PanelsTopLeft size={25} color="#ffffff" /></button>
 
       <div className="relative">
-        <div style={{backgroundColor: "#171717"}}
+        <div style={{backgroundColor: "#171710"}}
           className={` ${
             open ? "w-72 p-5" : "translate-x-0 w-0 p-0"
           } h-full pt-8 duration-300 absolute md:relative z-40`}
