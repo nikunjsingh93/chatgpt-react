@@ -55,13 +55,7 @@ function Sidebar() {
           } bg-gray-900 h-full pt-8 duration-300 absolute md:relative z-40`}
         >
           <div className="flex gap-x-4 items-center">
-            <h1
-              className={`text-white origin-left font-medium text-xl duration-200 ${
-                !open && "scale-0"
-              }`}
-            >
-              Nik GPT
-            </h1>
+            
           </div>
           <div className="pt-6 flex gap-x-4 items-center">
             <h4

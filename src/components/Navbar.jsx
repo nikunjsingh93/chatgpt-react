@@ -5,14 +5,14 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
   return (
     <nav className="bg-blue-500 p-4 w-full">
-      <div className="container mx-auto flex items-center justify-between">
+      <div className="container flex items-center justify-between">
         {/* Heading */}
-        <h1 className="text-white text-2xl font-semibold">
+        <h1 className="text-white text-2xl font-semibold pl-10 mr-auto">
           <Link to="/">Nik GPT</Link>
         </h1>
 
         {/* Navigation Links */}
-        <div className="space-x-6">
+        <div className="space-x-6 ml-auto">
           <span className="text-white hover:text-gray-300">
             <Link to="/" className="nav-link">
               Chat
