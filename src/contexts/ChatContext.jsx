@@ -77,7 +77,7 @@ export const ChatProvider = ({ children }) => {
   const addToChatList = (item) => {
     const messageExists = chatList.includes(item);
 
-    if (!messageExists) {
+    if (!messageExists && item.length > 0) {
       setChatList((prev) => [...prev, item]);
     }
   };
