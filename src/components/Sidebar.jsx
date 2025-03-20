@@ -23,9 +23,9 @@ function Sidebar() {
   return (
     <>
       <img
-        src="./src/assets/control.png"
-        className={`absolute z-50 cursor-pointer  w-7 border-dark-purple
-           border-2 rounded-full  ${!open}`}
+        src="./src/assets/menu.png"
+        className={`absolute z-50 cursor-pointer w-9 m-3
+           ${!open}`}
         onClick={() => setOpen(!open)}
       />
 
