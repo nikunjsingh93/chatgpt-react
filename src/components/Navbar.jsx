@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <nav className="bg-blue-500 p-4 w-full">
-      <div className="container flex items-center justify-between">
+    <nav className="bg-blue-500 p-4">
+      <div className="flex items-center justify-between">
         {/* Heading */}
         <h1 className="text-white text-2xl font-semibold pl-10 mr-auto">
           <Link to="/">Nik GPT</Link>
