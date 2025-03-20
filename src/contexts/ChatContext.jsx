@@ -50,16 +50,6 @@ export const ChatProvider = ({ children }) => {
     setMessages([]);
   };
 
-  const areArraysEqual = (arr1, arr2) => {
-    if (arr1.length !== arr2.length) return false;
-
-    return arr1.every((value, index) => {
-      if (Array.isArray(value) && Array.isArray(arr2[index])) {
-        return areArraysEqual(value, arr2[index]); // Recursively compare
-      }
-      return value === arr2[index];
-    });
-  };
 
   const removeFromChatList = (indexToRemove) => {
     chatList.forEach((message, index) => {
@@ -67,7 +57,9 @@ export const ChatProvider = ({ children }) => {
         setChatList((prev) =>
           prev.filter((_, index) => index !== indexToRemove)
         );
-        if (areArraysEqual(message, messages)) {
+
+        if (JSON.stringify(message) === JSON.stringify(messages)) {
+            console.log("inn")
           setMessages([]);
         }
       }
