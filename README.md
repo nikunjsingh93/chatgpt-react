@@ -3,7 +3,7 @@
 ChatGPT Client using react and tailwind css. Connected to Open Router API. Chats are saved in localstorage. You can add your own API key in .env. You can delete and view old chats. Responsive on mobile
 
 
-#Screenshots
+# Screenshots
 
 ![Screenshot 2025-03-20 111501](https://github.com/user-attachments/assets/76ea21fb-93dc-44a0-8d0b-53ce388b7133)
 
