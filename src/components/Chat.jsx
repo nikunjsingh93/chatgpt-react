@@ -45,7 +45,7 @@ const Chat = () => {
 
   return (
     <div style={{backgroundColor: "#212121"}} className="flex flex-col h-[calc(100%-4rem)] p-4 w-95 sm:w-100 md:w-120 lg:w-180 xl:w-200 mx-auto">
-      <div style={{backgroundColor: "#212121"}} className="h-[calc(100%-4rem)] overflow-y-auto mb-4 p-4 rounded-xl shadow-md">
+      <div style={{backgroundColor: "#212121"}} className="h-[calc(100%-4rem)] overflow-y-auto mb-4 p-2 rounded-xl shadow-md">
         {messages.map((msg, index) => (
           <div
             key={index}
@@ -68,7 +68,7 @@ const Chat = () => {
 
       <div className="flex items-center gap-2">
         <input
-          className="flex-1 p-3 border rounded-xl focus:outline-none"
+          className="flex-1 p-3 rounded-xl focus:outline-none bg-[#303030] text-white"
           type="text"
           value={input}
           onChange={(e) => setInput(e.target.value)}
@@ -77,7 +77,7 @@ const Chat = () => {
         />
         <button
           onClick={handleSend}
-          className="bg-blue-500 text-white p-3 rounded-xl hover:bg-blue-600"
+          className="bg-white text-black p-3 rounded-xl hover:bg-blue-600"
         >
           <Send size={20} />
         </button>
